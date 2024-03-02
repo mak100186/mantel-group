@@ -4,14 +4,26 @@ using MantelGroup.LogParser.Services;
 
 namespace MantelGroup.LogParser.Algorithms;
 
-public class CustomParsingAlgorithm(IFileReader fileReader) : IParsingAlgorithm
+public class CustomParsingAlgorithm : IParsingAlgorithm
 {
+    private readonly IFileReader _fileReader;
+
+    public CustomParsingAlgorithm(IFileReader fileReader)
+    {
+        this._fileReader = fileReader;
+    }
+
+    public CustomParsingAlgorithm()
+    {
+        this._fileReader = new FileReader();
+    }
+
     public Tuple<int, List<KeyValuePair<string, int>>, List<KeyValuePair<string, int>>> Process(string filename)
     {
         var ipAddressCounters = new Dictionary<string, int>();
         var urlCounters = new Dictionary<string, int>();
 
-        var lines = fileReader.ReadLines(filename);
+        var lines = _fileReader.ReadLines(filename);
         foreach (var line in lines)
         {
             var cols = line.Split(' ');
