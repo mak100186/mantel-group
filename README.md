@@ -20,7 +20,7 @@ Seq came up on top due to its usage of Structs and no Gen1 variables. In order t
 
 Unit tests were also written on CustomParsingAlgorithm to demonstrate testable classes.
 
-## How Tos
+## Prerequisite and Setup
 
 Note: Data folder with the file named:
 `programming-task-example-data.txt`
@@ -30,15 +30,17 @@ is expected alongside the executable
 In the case where the file is not found, the following error will be shown:
 ![File not found](./docs/FileNotFound.png)
 
+## How Tos
+
 - To run the benchmarks (MantelGroup.BenchmarkTests):
   - Open Terminal and Nagivate to `[ProjectRoot]/tests/MantelGroup.BenchmarkTests`
   - Run `dotnet run -c Release`
 - To run the Console Project (MantelGroup.LogParser):
-  - Open Terminal and Nagivate to `[ProjectRoot]/tests/MantelGroup.BenchmarkTests`
-  - Run `dotnet run -c Release`
+  - Open Terminal and Nagivate to `[ProjectRoot]/tests/MantelGroup.LogParser`
+  - Run `dotnet run`
     ![Console output](./docs/ConsoleOutput.png)
 - To run the Unit Tests (MantelGroup.UnitTests):
-  - Open Terminal and Navigate to `[ProjectRoot]/tests\MantelGroup.UnitTests`
+  - Open Terminal and Navigate to `[ProjectRoot]/tests/MantelGroup.UnitTests`
   - Run `dotnet test` to execute tests
     or `dotnet test -v n` to execute with logs
 
@@ -50,3 +52,6 @@ Alternatively, you can run from VS or any other IDE as well.
 - [x] Unit testing with xUnit, Moq, Bogus, File based data sets, mock setups and verifications,
 - [x] Benchmark testing for all algorithms
 - [x] Multiple algorithms using thrid party nugets and custom implementations
+- [x] Gitub Action that builds and runs tests on every commit.
+
+![GithubActions](./docs/GithubActions.png)
