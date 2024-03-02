@@ -10,3 +10,10 @@ The choice of CSV parser was done after looking at some benchmarks provided by t
 
 Data analysis shows that the data has 10 columns if we use the space delimiter. However, notice how the date time offset is parsed as two separate columns due to the lack of multiple unescaping characters. The workaround applied was to load the csv as is and combine the two columns when reading to still be performant.
 ![Parsed Data In Excel](./docs/DataAnalysis.png)
+
+## Performance Test Results
+
+Performance tests compared different approaches:
+![Performance Test Results](./docs/PerformanceResults.png)
+
+Since Seq came up on top due to its usage of Structs and Gen0 variables, all unit tests were written on that algorithm.
